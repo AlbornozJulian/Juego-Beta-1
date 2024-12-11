@@ -1,0 +1,28 @@
+# Project: Juego para Final
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = Menu_juego.o
+LINKOBJ  = Menu_juego.o
+LIBS     = -L"F:/Dev-C++/Dev-Cpp/MinGW64/lib" -L"F:/Dev-C++/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"F:/Dev-C++/Dev-Cpp/MinGW64/include" -I"F:/Dev-C++/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"F:/Dev-C++/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"F:/Dev-C++/Dev-Cpp/MinGW64/include" -I"F:/Dev-C++/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"F:/Dev-C++/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"F:/Dev-C++/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = "Juego para Final.exe"
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+Menu_juego.o: Menu_juego.cpp
+	$(CPP) -c Menu_juego.cpp -o Menu_juego.o $(CXXFLAGS)
